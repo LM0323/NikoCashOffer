@@ -79,7 +79,9 @@
           </div>
 
           <div class="panel__body">
-            <form action="https://formsubmit.co/Berrystreetholdingsllc@gmail.com" method="post" class="lead-form" novalidate>
+            <form action="https://formsubmit.co/ajax/Berrystreetholdingsllc@gmail.com" method="post" class="lead-form">
+              <input type="hidden" name="_subject" value="New cash offer inquiry">
+              <input type="hidden" name="_template" value="table">
               <div class="field"><label class="sr-only" for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Name" autocomplete="name" required></div>
               <div class="field"><label class="sr-only" for="phone">Phone</label>
@@ -89,6 +91,7 @@
               <div class="field"><label class="sr-only" for="message">Message</label>
                 <textarea id="message" name="message" rows="4" placeholder="Message"></textarea></div>
               <button type="submit" class="btn btn--primary btn--block">Get a cash offer <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+              <p class="form-status" role="status" aria-live="polite" hidden></p>
               <p class="fineprint">No obligation. I&rsquo;ll only use this to follow up about the property.</p>
             </form>
           </div>
@@ -244,6 +247,41 @@
         <p>&copy;2026 Niko Nikolic. Cash offers on residential property in the Chicagoland area.</p>
       </div>
     </footer>
+
+    <script>
+      const leadForm = document.querySelector('.lead-form');
+      const formStatus = leadForm.querySelector('.form-status');
+      const submitButton = leadForm.querySelector('button[type="submit"]');
+
+      leadForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        formStatus.hidden = true;
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+
+        try {
+          const response = await fetch(leadForm.action, {
+            method: leadForm.method,
+            body: new FormData(leadForm),
+            headers: { Accept: 'application/json' }
+          });
+
+          if (!response.ok) {
+            throw new Error(`Form submission failed with status ${response.status}.`);
+          }
+
+          leadForm.reset();
+          formStatus.textContent = 'Thanks — I received your message and will be in touch soon.';
+        } catch (error) {
+          console.error(error);
+          formStatus.textContent = 'I could not send your message right now. Please call or text (630) 863-1845.';
+        } finally {
+          formStatus.hidden = false;
+          submitButton.disabled = false;
+          submitButton.removeAttribute('aria-busy');
+        }
+      });
+    </script>
 
   </body>
 </html>

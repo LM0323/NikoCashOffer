@@ -261,6 +261,15 @@ svg { display: block; }
 }
 .lead-form .btn--primary { margin-top: 0.4rem; padding-block: 18px; font-size: 15px; }
 
+.form-status {
+  margin: 0.9rem 0 0;
+  color: var(--muted-dark);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.lead-form button:disabled { cursor: wait; opacity: 0.7; }
+
 .fineprint {
   margin: 1rem 0 0;
   font-size: 0.78rem;

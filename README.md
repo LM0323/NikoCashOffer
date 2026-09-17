@@ -12,14 +12,15 @@ Content migrated from the Homebase-hosted page at `homebasemail.io/site/nemanja-
 ## Before going live
 
 The contact form sends submissions to `Berrystreetholdingsllc@gmail.com` through
-[FormSubmit](https://formsubmit.co):
+the AJAX endpoint provided by [FormSubmit](https://formsubmit.co):
 
 ```html
-<form action="https://formsubmit.co/Berrystreetholdingsllc@gmail.com" method="post" class="lead-form">
+<form action="https://formsubmit.co/ajax/Berrystreetholdingsllc@gmail.com" method="post" class="lead-form">
 ```
 
 The first submission sends a confirmation link to that address — click it once to
-activate delivery. Until then, nothing is delivered.
+activate delivery. Until then, nothing is delivered. The form handles the response
+in the page so provider errors do not replace the site with a raw error page.
 
 ## Publishing on GitHub Pages
 
