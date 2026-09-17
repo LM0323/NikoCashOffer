@@ -349,6 +349,21 @@ svg { display: block; }
 }
 .reason h3 { color: var(--white); margin-bottom: 0.4rem; }
 .reason p { color: var(--muted-dark); font-size: 0.97rem; }
+.reason p + p { margin-top: 0.8rem; }
+
+/* card 04 — the positive, closing note */
+.reason--feature {
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.22);
+}
+.reason__eyebrow {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
 
 @media (max-width: 800px) {
   .steps, .terms { grid-template-columns: 1fr; }
