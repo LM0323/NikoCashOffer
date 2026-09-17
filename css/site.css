@@ -374,6 +374,19 @@ svg { display: block; }
   color: var(--green-light);
 }
 
+.reason-photo {
+  margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
+  max-width: 309px;
+}
+
+.reason-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line-dark);
+  border-radius: 16px;
+}
+
 @media (max-width: 800px) {
   .steps, .terms { grid-template-columns: 1fr; }
 }
