@@ -11,17 +11,11 @@ Content migrated from the Homebase-hosted page at `homebasemail.io/site/nemanja-
 
 ## Before going live
 
-**The contact form is not wired up.** In `index.html`, find:
+The contact form sends submissions to `Berrystreetholdingsllc@gmail.com` through
+[FormSubmit](https://formsubmit.co):
 
 ```html
-<form action="#" method="post" class="lead-form" novalidate>
-```
-
-Set `action` to a form handler. The simplest option (free, no account, no backend)
-is [FormSubmit](https://formsubmit.co):
-
-```html
-<form action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST" class="lead-form">
+<form action="https://formsubmit.co/Berrystreetholdingsllc@gmail.com" method="post" class="lead-form">
 ```
 
 The first submission sends a confirmation link to that address — click it once to
